@@ -8,7 +8,7 @@ export const genNotePlaceholders = (size: number) => {
     const baseNote = {
       collection: "shared-notes",
       id: `${i + 1}`,
-      title: Math.random() > 0.5 ? "Title" + randomString(10) : null,
+      title: Math.random() < 0.2 ? null : "Title " + randomString(10),
       category: {
         iconId: "none",
         name: randomString(5),

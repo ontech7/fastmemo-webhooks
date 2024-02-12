@@ -25,12 +25,16 @@ export default function NoteSettings({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-8 w-8 p-0 -mr-2">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-blue-950 dark:text-blue-200 h-8 w-8 p-0 -mr-2"
+        >
           <Settings className="h-5 w-5" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuLabel className="text-xs text-gray-400">
+      <DropdownMenuContent className="text-blue-950 dark:text-blue-200">
+        <DropdownMenuLabel className="text-xs opacity-70">
           Settings
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
