@@ -1,0 +1,1 @@
+export type Collection = "shared-notes" | "trashed-notes"
