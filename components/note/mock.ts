@@ -43,13 +43,11 @@ export const genNotePlaceholders = (size: number) => {
       list.push({
         ...baseNote,
         type: "todo",
-        list: [
-          { id: randomString(10), text: randomString(15), checked: Math.random() > 0.5 },
-          { id: randomString(10), text: randomString(15), checked: Math.random() > 0.5 },
-          { id: randomString(10), text: randomString(15), checked: Math.random() > 0.5 },
-          { id: randomString(10), text: randomString(15), checked: Math.random() > 0.5 },
-          { id: randomString(10), text: randomString(15), checked: Math.random() > 0.5 }
-        ]
+        list: Array.from({ length: Math.ceil(Math.random() * 10) }).map(_ => ({
+          id: randomString(10),
+          text: randomString(15),
+          checked: Math.random() > 0.5
+        }))
       } as NoteTodo)
     }
   }
