@@ -1,15 +1,17 @@
-import { Folder } from "lucide-react";
+import { Folder, X } from "lucide-react";
 
 import { Checkbox } from "../ui/checkbox";
 import { Separator } from "../ui/separator";
 
+import { Button } from "../ui/button";
 import type { Note } from "./types";
 
 interface NoteViewerProps {
   note: Note;
+  onClose(): void;
 }
 
-export default function NoteViewer({ note }: NoteViewerProps) {
+export default function NoteViewer({ note, onClose }: NoteViewerProps) {
   const renderNoteContent = (note: Note) => {
     switch (note.type) {
       case "text":
@@ -45,9 +47,19 @@ export default function NoteViewer({ note }: NoteViewerProps) {
 
   return (
     <div className="bg-content1 rounded-large flex-grow overflow-y-auto">
-      <h2 className="text-3xl text-blue-950 dark:text-blue-200 font-bold px-4 pt-4 mb-1">
-        {note.title || "(No title)"}
-      </h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-3xl text-blue-950 dark:text-blue-200 font-bold px-4 pt-4 mb-1">
+          {note.title || "(No title)"}
+        </h2>
+        <Button
+          size="icon"
+          variant="ghost"
+          className="text-blue-950 dark:text-blue-200"
+          onClick={onClose}
+        >
+          <X />
+        </Button>
+      </div>
       <div className="flex items-center text-sm text-blue-950 dark:text-blue-200 opacity-70 px-4 mb-4">
         <Folder className="mr-2 h-4 w-4" />
         <span>{note.category.name}</span>

@@ -25,6 +25,13 @@ export default function NoteCard(props: NoteCardProps) {
     e.stopPropagation();
   };
 
+  const onDeletePermanently = (e: MouseEvent) => {
+    toast(`Note "${props.title}" permanently deleted! (WIP)`, {
+      description: `ID: ${props.id}`,
+    });
+    e.stopPropagation();
+  };
+
   const onCopyAsJson = (e: MouseEvent) => {
     navigator.clipboard.writeText(JSON.stringify(props));
     toast("Note copied as JSON to clipboard!", {
@@ -54,7 +61,9 @@ export default function NoteCard(props: NoteCardProps) {
           </div>
         </div>
         <NoteSettings
+          collection={props.collection}
           onDelete={onDelete}
+          onDeletePermanently={onDeletePermanently}
           onCopyAsJson={onCopyAsJson}
           onCopyID={onCopyID}
         />

@@ -1,12 +1,13 @@
 import { randomString } from "@/lib/utils/string";
 
+import type { Collection } from "@/lib/utils/api";
 import type { Note, NoteText, NoteTodo } from "./types";
 
-export const genNotePlaceholders = (size: number) => {
+export const genNotePlaceholders = (size: number, collection: Collection) => {
   const list: Note[] = [];
   for (let i = 0; i < size; i++) {
     const baseNote = {
-      collection: "shared-notes",
+      collection,
       id: `${i + 1}`,
       title: Math.random() < 0.2 ? null : "Title " + randomString(10),
       category: {

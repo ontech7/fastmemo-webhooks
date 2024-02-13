@@ -21,6 +21,7 @@ export default function SharedNotesTab({ placeholders }: SharedNotesTabProps) {
   const [selectedNote, setSelectedNote] = useState(-1);
   const openNote = (index: number) => () =>
     setSelectedNote((prev) => (index != prev ? index : -1));
+  const closeNote = () => setSelectedNote(-1);
 
   return (
     <TabsContent value="shared-notes">
@@ -36,7 +37,10 @@ export default function SharedNotesTab({ placeholders }: SharedNotesTabProps) {
         <ResizablePanel defaultSize={70} minSize={50}>
           <ScrollArea className="h-[calc(100vh-80px)] py-4 px-8">
             {selectedNote != -1 && (
-              <NoteViewer note={placeholders[selectedNote]} />
+              <NoteViewer
+                note={placeholders[selectedNote]}
+                onClose={closeNote}
+              />
             )}
           </ScrollArea>
         </ResizablePanel>

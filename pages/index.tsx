@@ -6,14 +6,18 @@ import type { Note } from "@/components/note/types";
 import { genNotePlaceholders } from "@/components/note/mock";
 
 interface HomePageProps {
-  placeholders: Note[];
+  placeholdersShared: Note[];
+  placeholdersTrashed: Note[];
 }
 
-export default function HomePage({ placeholders }: HomePageProps) {
+export default function HomePage({
+  placeholdersShared,
+  placeholdersTrashed,
+}: HomePageProps) {
   return (
     <Layout>
-      <SharedNotesTab placeholders={placeholders} />
-      <TrashedNotesTab />
+      <SharedNotesTab placeholders={placeholdersShared} />
+      <TrashedNotesTab placeholders={placeholdersTrashed} />
     </Layout>
   );
 }
@@ -21,7 +25,8 @@ export default function HomePage({ placeholders }: HomePageProps) {
 export async function getStaticProps() {
   return {
     props: {
-      placeholders: genNotePlaceholders(10),
+      placeholdersShared: genNotePlaceholders(10, "shared-notes"),
+      placeholdersTrashed: genNotePlaceholders(3, "trashed-notes"),
     },
   };
 }
