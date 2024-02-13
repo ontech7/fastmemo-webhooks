@@ -1,9 +1,8 @@
 import { randomString } from "@/lib/utils/string";
 
-import type { Collection } from "@/lib/utils/api";
 import type { Note, NoteText, NoteTodo } from "./types";
 
-export const genNotePlaceholders = (size: number, collection: Collection) => {
+export const genNotePlaceholders = (size: number, collection: string) => {
   const list: Note[] = [];
   for (let i = 0; i < size; i++) {
     const baseNote = {

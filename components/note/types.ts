@@ -1,9 +1,7 @@
-import type { Collection } from "@/lib/utils/api";
-
 export type NoteType = "text" | "todo";
 
 export type BaseNote = {
-  collection: Collection;
+  collection: string;
   id: string;
   type?: NoteType;
   title?: string;

@@ -10,10 +10,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Collection } from "@/lib/utils/api";
 
 interface NoteSettingsProps {
-  collection: Collection;
+  collection: string;
   onDelete(e: MouseEvent): void;
   onDeletePermanently(e: MouseEvent): void;
   onCopyAsJson(e: MouseEvent): void;

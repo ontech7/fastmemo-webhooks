@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils/classes";
 import { Tabs } from "../ui/tabs";
+
 import Logo from "./components/logo";
 import Nav from "./components/nav";
 import SwitchTheme from "./components/switch-theme";
