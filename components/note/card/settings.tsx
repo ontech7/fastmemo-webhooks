@@ -11,8 +11,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import type { NoteCollection } from "../types";
+
 interface NoteSettingsProps {
-  collection: string;
+  collection: NoteCollection;
   onDelete(e: MouseEvent): void;
   onDeletePermanently(e: MouseEvent): void;
   onCopyAsJson(e: MouseEvent): void;
@@ -26,7 +28,7 @@ export default function NoteSettings({
   onCopyAsJson,
   onCopyID,
 }: NoteSettingsProps) {
-  const isSharedNotesCollection = collection == "shared-notes";
+  const isSharedCollection = collection == "shared";
 
   return (
     <DropdownMenu>
@@ -45,12 +47,10 @@ export default function NoteSettings({
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem
-          onClick={isSharedNotesCollection ? onDelete : onDeletePermanently}
+          onClick={isSharedCollection ? onDelete : onDeletePermanently}
         >
           <Trash2 className="mr-2 h-4 w-4" />
-          <span>
-            {isSharedNotesCollection ? "Delete" : "Delete permanently"}
-          </span>
+          <span>{isSharedCollection ? "Delete" : "Delete permanently"}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={onCopyAsJson}>
           <FileJson2 className="mr-2 h-4 w-4" />

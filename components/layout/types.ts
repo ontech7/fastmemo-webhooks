@@ -1,4 +1,6 @@
+import type { NoteCollection } from "../note/types";
+
 export type NavItem = {
-  id: string;
+  id: NoteCollection;
   label: string;
 }

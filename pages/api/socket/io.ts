@@ -11,13 +11,13 @@ export type NextApiResponseWithSocket = NextApiResponse & {
   }
 }
 
-export default function SocketHandler(
+export default async function SocketHandler(
   req: NextApiRequest,
   res: NextApiResponseWithSocket
 ) {
   if (!res.socket.server.io) {
     const io = new SocketIOServer(res.socket.server, {
-      path: "/api/socket/io",
+      path: process.env.NEXT_PUBLIC_SOCKET_ENDPOINT!,
       addTrailingSlash: false
     });
 

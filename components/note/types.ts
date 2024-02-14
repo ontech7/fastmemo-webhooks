@@ -1,7 +1,22 @@
+/**
+ * State
+ */
+
+export type NoteCollection = "shared" | "trashed";
+
+export type NoteCollections = {
+  shared: Note[];
+  trashed: Note[];
+};
+
+/**
+ * Element
+ */
+
 export type NoteType = "text" | "todo";
 
 export type BaseNote = {
-  collection: string;
+  collection: NoteCollection;
   id: string;
   type?: NoteType;
   title?: string;

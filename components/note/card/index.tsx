@@ -5,7 +5,7 @@ import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 import NoteSettings from "./settings";
 
-import { timeAgo } from "@/lib/utils/date";
+import { timeAgo } from "@/libs/utils/internal/date";
 import { toast } from "sonner";
 import type { BaseNote } from "../types";
 

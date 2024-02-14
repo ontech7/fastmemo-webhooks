@@ -38,7 +38,7 @@ export const SocketProvider = ({ children }: SocketProviderProps) => {
 
   useEffect(() => {
     const socket = socketIOClient({
-      path: "/api/socket/io",
+      path: process.env.NEXT_PUBLIC_SOCKET_ENDPOINT!,
       addTrailingSlash: false,
     });
 

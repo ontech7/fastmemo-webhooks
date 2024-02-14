@@ -1,5 +1,4 @@
-import { cn } from "@/lib/utils/classes";
-import { Tabs } from "../ui/tabs";
+import { cn } from "@/libs/utils/vendor/shadcn-ui";
 
 import Logo from "./components/logo";
 import Nav from "./components/nav";
@@ -12,7 +11,7 @@ interface LayoutProps {
 
 export default function Layout({ children, className }: LayoutProps) {
   return (
-    <Tabs defaultValue="shared-notes" className="container h-screen">
+    <div className="container h-screen">
       <header
         className={cn("py-4 flex items-center justify-between", className)}
       >
@@ -21,6 +20,6 @@ export default function Layout({ children, className }: LayoutProps) {
         <SwitchTheme />
       </header>
       <main>{children}</main>
-    </Tabs>
+    </div>
   );
 }
